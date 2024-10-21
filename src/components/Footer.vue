@@ -29,7 +29,7 @@
 </template>
 <style scoped>
     #container-footer{
-       margin-top: 50px;
+       margin-top: 650px;
        height: 50px;
        background-color: #212529;
        font-size: 0.8em;
