@@ -3,7 +3,7 @@
 
 <template>
   <h1 class="h3 mt-4 mb-4 text-center">Acesse sua Conta</h1>
-  <form class="form bg-dark text-white">
+  <form class="form text-white">
     <div class="mb-3">
       <label class="form-label">E-mail</label>
       <input type="email" class="form-control" placeholder="Digite o e-mail" />
@@ -29,6 +29,7 @@
 <style scoped>
 .form {
   width: 400px;
+  background-color: #2c1507;
   margin-left: auto;
   margin-right: auto;
   padding: 20px;

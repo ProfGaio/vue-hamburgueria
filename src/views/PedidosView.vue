@@ -9,7 +9,7 @@ import DashBoard from '../components/DashBoard.vue'
     </div>
 </template>
 
-<style>
+<style scoped>
 .container {
  min-height: 625px;
 }
@@ -19,7 +19,4 @@ h1 {
   margin: 15px;
   text-decoration: underline 3px #FFCA2C;
 }
-
-
-
 </style>

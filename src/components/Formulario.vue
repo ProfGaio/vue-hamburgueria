@@ -114,7 +114,7 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #212529;
+    background-color: #2c1507;
     color: white;
     border-radius: 15px;
 }

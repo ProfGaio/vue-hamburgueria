@@ -3,7 +3,7 @@
 </script>
 
 <template>
-        <nav class="navbar navbar-expand-lg bg-dark p-2">
+        <nav class="navbar navbar-expand-lg p-2">
             <div class="container-fluid">
                 <img src="../assets/icon.png" alt="" id="logo">
                 <div class="align-title"><a href="/" class="navbar-brand" id="title">Zé Hamburgueria</a></div>
@@ -12,14 +12,18 @@
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="row">
-                    <ul class="navbar nav col-6">
+                    <ul class="navbar nav col-12">
                          <li class="nav-item" id="pedidos">
                             <a href="/login" class="nav-link text-white">Login</a>
                         </li>
-                    </ul>
-                    <ul class="navbar nav col-6">
+                    
                          <li class="nav-item" id="pedidos">
                             <a href="/pedidos" class="nav-link text-white">Pedidos</a>
+                        </li>
+                    
+                    
+                         <li class="nav-item" id="pedidos">
+                            <a href="/about" class="nav-link text-white">Sobre</a>
                         </li>
                     </ul>
                 </div>
@@ -33,6 +37,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mansalva&display=swap');
 
+.navbar{
+    background-color:#2c1507;
+}
 
 #title{
     font-family: 'Mansalva', cursive;
