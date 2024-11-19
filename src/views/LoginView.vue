@@ -20,7 +20,7 @@
       <button class="btn btn-warning">Acessar</button>
       <ul class="link">
         <li>
-          <a href="/novo-usuario">Criar conta</a>
+          <a href="/registrar">Criar conta</a>
         </li>
       </ul>
     </div>
