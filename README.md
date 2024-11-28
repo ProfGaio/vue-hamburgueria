@@ -1,6 +1,8 @@
 # vue-hamburgueria
 
-This template should help get you started developing with Vue 3 in Vite.
+Projeto de App Hamburgueria feito com:
+Front-end: Node.js, Vue.js 3 (com Vite), Axios;
+Back-end: Node.js, Express, Mongoose (para acesso ao MongoDB) 
 
 ## Recommended IDE Setup
 
