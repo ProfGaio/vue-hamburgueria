@@ -4,11 +4,41 @@ const Queijo = require('../models/Queijo')
 const Adicional = require('../models/Adicional')
 
 module.exports = class IngredienteController{
-    // Método buscarIngrediente
+    // Método buscar pães
     static async buscarPaes(req, res){
         try{
             const paes = await Pao.find()
             res.json(paes)
+            
+        } catch (erro){
+            res.status({mensagem: {erro}})
+        }
+    }
+    // Método buscar proteínas
+    static async buscarProteinas(req, res){
+        try{
+            const proteinas = await Proteina.find()
+            res.json(proteinas)
+            
+        } catch (erro){
+            res.status({mensagem: {erro}})
+        }
+    }
+    // Método buscar queijo
+    static async buscarQueijos(req, res){
+        try{
+            const queijos = await Queijo.find()
+            res.json(queijos)
+            
+        } catch (erro){
+            res.status({mensagem: {erro}})
+        }
+    }
+    // Método buscarIngrediente
+    static async buscarAdicionais(req, res){
+        try{
+            const adicionais = await Adicional.find()
+            res.json(adicionais)
             
         } catch (erro){
             res.status({mensagem: {erro}})
@@ -86,7 +116,7 @@ module.exports = class IngredienteController{
         const queijoCadastrado = await Queijo.findOne({sku: sku})
 
         if (queijoCadastrado){
-            res.status(422).json({mensagem: "Pão já cadastrado!"})
+            res.status(422).json({mensagem: "Queijo já cadastrado!"})
             return
         }
         /* Adicionando o queijo ao bd */

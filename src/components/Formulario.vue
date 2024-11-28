@@ -13,23 +13,27 @@ export default{
            proteinas: null,
            queijos: null,
            bdAdicionais: null,
-           msg: null
+           msg: null    
         }
     },
     methods:{
-        async buscarPaes(){
+        async buscarIngredientes(){
             try{
-                const resposta = await axios.get('/ingredientes/paes') 
-                this.paes = resposta.data
-                console.log(paes)
+                const dadosPaes = await axios.get('/ingredientes/paes') 
+                this.paes = dadosPaes.data
+                const dadosProteinas = await axios.get('/ingredientes/proteinas') 
+                this.proteinas = dadosProteinas.data
+                const dadosQueijos = await axios.get('/ingredientes/queijos') 
+                this.queijos = dadosQueijos.data
+                const dadosAdicionais = await axios.get('/ingredientes/adicionais') 
+                this.bdAdicionais = dadosAdicionais.data
+               
             } catch(erro){
                 console.log(erro)
             }
-            
-            /* const dados = await req.json() */
-           
-           
-        },
+
+         },
+         
         async criarSanduiche(e){
             e.preventDefault()
 
@@ -42,7 +46,9 @@ export default{
                 status: "Solicitado"
             }
             const dadosJson = JSON.stringify(dados)
-            const req = await fetch('http://localhost:3000/sanduiches', {method: "POST", headers: {"Content-Type": "application/json"}, body: dadosJson})
+            const req = await fetch('http://localhost:3000/sanduiches', 
+            {method: "POST", headers: {"Content-Type": "application/json"},  
+            body: dadosJson})
             const res = await req.json()
             //Texto da mensagem do componente Mensagem.Vue
             this.msg = "Sanduíche criado com sucesso!"
@@ -57,7 +63,7 @@ export default{
                 this.adicionais=""
         } 
     },
-    created() {
+    mounted() {
         this.buscarIngredientes()
     },
     components: {
@@ -73,26 +79,28 @@ export default{
                 <label class="form-label">Tipo de Pão</label>
                 <select v-model="pao" class="form-select">
                 <option disabled>Escolha seu pão</option>
-                <option v-for="pao in bdPaes" :key="pao.id" :value="pao.tipo">{{pao.tipo}}</option>
+                <option v-for="pao in paes" :key="pao.sku" :value="pao.descricao">{{pao.descricao}}</option>
                 </select>
             </div>
             <div class="form-items">
                 <label class="form-label">Proteína</label>
                 <select class="form-select" v-model="proteina">
                 <option disabled>Escolha sua proteína</option>
-                <option v-for="proteina in bdProteinas" :key="proteina.id" :value="proteina.descricao">{{proteina.descricao}}</option>
+                <option v-for="proteina in proteinas" :key="proteina.id" :value="proteina.descricao">{{proteina.descricao}}</option>
                 </select>
             </div>
             <div class="form-items">
                 <label class="form-label">Queijo</label>
                 <select class="form-select" v-model="queijo" >
                 <option selected>Escolha seu queijo</option>
-                <option v-for="queijo in bdQueijos" :key="queijo.id" :value="queijo.tipo">{{queijo.tipo}}</option>
+                <option v-for="queijo in queijos" :key="queijo.sku" :value="queijo.descricao">
+                    {{queijo.descricao}}
+                </option>
                 </select>
             </div>
             <label class="form-label m-2">Adicionais</label>
             <div class="container-checkbox">
-                <div v-for="adicional in bdAdicionais" :key="adicional.id" class="checkbox-item">
+                <div v-for="adicional in bdAdicionais" :key="adicional.sku" class="checkbox-item">
                     <input type="checkbox" v-model="adicionais" :value="adicional.descricao" class="form-check-input">
                     <label class="form-check-label">{{adicional.descricao}}</label>
                 </div>
