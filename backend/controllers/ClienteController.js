@@ -87,4 +87,23 @@ module.exports = class ClienteController{
         } 
         await criarClienteToken(cliente,req,res)
     } /* FIM do método de login */
+
+    static async verificaUsuario(req, res){
+        let usuarioAtual
+
+        console.log(req.headers.autorizacao)
+
+        if (req.headers.autorizacao){
+            const token = getToken(req)
+            const decodificado = jwt.verify(token,'mysecret')
+            usuarioAtual = await Cliente.findById(decodificado.id)
+            usuarioAtual.senha = undefined 
+            //segurança aqui: esvazia o retorno da senha
+        } else{
+            usuarioAtual= null
+        }
+
+        res.status(200).send(usuarioAtual)
+    }
+
 }

@@ -1,5 +1,16 @@
 <script>
-
+    export default{
+        data(){
+            return{
+                token: ""
+            }
+        },
+        methods:{
+            verificaToken(){
+                axios.get()
+            }
+        }
+    }
 </script>
 
 <template>
