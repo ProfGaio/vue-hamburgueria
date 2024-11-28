@@ -4,10 +4,20 @@ const Queijo = require('../models/Queijo')
 const Adicional = require('../models/Adicional')
 
 module.exports = class IngredienteController{
+    // Método buscarIngrediente
+    static async buscarPaes(req, res){
+        try{
+            const paes = await Pao.find()
+            res.json(paes)
+            
+        } catch (erro){
+            res.status({mensagem: {erro}})
+        }
+    }
+    
     // Método registrarPao
     static async registrarPao(req, res){
-        const sku = req.body.sku
-        const descricao = req.body.descricao
+        const {sku, descricao} = req.body
         if(!sku){
             res.status(422).json({mensagem: "O código sku é obrigatório"})
             return
@@ -23,7 +33,7 @@ module.exports = class IngredienteController{
             return
         }
         /* Adicionando o pão ao bd */
-        const pao = new Pao({sku,descricao})
+        const pao = new Pao(req.body)
 
         try{
             const novoPao = await pao.save()

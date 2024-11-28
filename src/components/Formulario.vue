@@ -1,6 +1,6 @@
 <script>
 import Mensagem from './Mensagem.vue'
-
+import axios from '@/axios'
 export default{
     data(){
         return{
@@ -9,21 +9,26 @@ export default{
            queijo:"", 
            adicionais: [],
            status: "Solicitado",
-           bdPaes: null,
-           bdProteinas: null,
-           bdQueijos: null,
+           paes: null,
+           proteinas: null,
+           queijos: null,
            bdAdicionais: null,
            msg: null
         }
     },
     methods:{
-        async buscarIngredientes(){
-            const req = await fetch('http://localhost:3000/ingredientes')
-            const dados = await req.json()
-            this.bdPaes = dados.pao
-            this.bdProteinas = dados.proteina
-            this.bdQueijos = dados.queijo
-            this.bdAdicionais = dados.adicionais
+        async buscarPaes(){
+            try{
+                const resposta = await axios.get('/ingredientes/paes') 
+                this.paes = resposta.data
+                console.log(paes)
+            } catch(erro){
+                console.log(erro)
+            }
+            
+            /* const dados = await req.json() */
+           
+           
         },
         async criarSanduiche(e){
             e.preventDefault()
