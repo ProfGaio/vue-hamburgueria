@@ -4,27 +4,27 @@ Projeto de App Hamburgueria feito com:
 Front-end: Node.js, Vue.js 3 (com Vite), Axios;
 Back-end: Node.js, Express, Mongoose (para acesso ao MongoDB) 
 
-## Recommended IDE Setup
+## IDE Utilizada no Desenvolvimento
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-## Customize configuration
+## Configuração Customizada
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+## Setup
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Compilar e Recarregar para Desenvolvimento
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+### Compilar and Minify para Produção
 
 ```sh
 npm run build
